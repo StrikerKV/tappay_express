@@ -1,10 +1,10 @@
 import app from "./app";
-import dotenv from 'dotenv';
+import { createTable } from './models/userModel';
 
-dotenv.config();
+const PORT = process.env.PORT;
+const DB = process.env.DATABASE_URL;
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  await createTable();
 });

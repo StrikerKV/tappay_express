@@ -1,6 +1,10 @@
-import { Sequelize } from "sequelize";
-const sequelize = new Sequelize("tappay", "root", "Admin@123", {
-  host: "localhost",
-  dialect: "postgres",
+import { Pool } from "pg";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
 });
-export default sequelize;
+
+export default pool;

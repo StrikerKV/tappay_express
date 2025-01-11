@@ -1,13 +1,12 @@
 import express from "express";
-import bodyParser from "body-parser";
+import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes";
+
+dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-
-// Routes
+app.use(express.json());
 app.use("/users", userRoutes);
 
 export default app;
